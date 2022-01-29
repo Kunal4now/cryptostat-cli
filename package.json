@@ -1,7 +1,7 @@
 {
   "name": "cryptostat",
   "version": "1.0.0",
-  "description": "",
+  "description": "cryptostat gets you the real-time stats of your favorite cryptocurrency",
   "type": "module",
   "main": "index.js",
   "scripts": {
