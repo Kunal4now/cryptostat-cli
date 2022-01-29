@@ -17,5 +17,9 @@
     "cli-table3": "^0.6.1",
     "inquirer": "^8.2.0"
   },
-  "bin": "index.js"
+  "bin": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kunal4now/cryptostat-cli.git"
+  }
 }
