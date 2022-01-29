@@ -20,6 +20,10 @@
   "bin": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kunal4now/cryptostat-cli.git"
+    "url": "git+https://github.com/Kunal4now/cryptostat-cli.git"
+  },
+  "homepage": "https://github.com/Kunal4now/cryptostat-cli#readme",
+  "bugs": {
+    "url": "https://github.com/Kunal4now/cryptostat-cli/issues"
   }
 }
