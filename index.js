@@ -4,31 +4,19 @@ import axios from 'axios'
 import inquirer from 'inquirer'
 import chalk from 'chalk'
 import Table from 'cli-table3'
-
-const url = 'https://coinmarketcap.com/'
+import configValues from './config.js'
 
 const getPrices = async (cryptoName) => {
     try {
         const currency = cryptoName.cryptoName 
-        const {data} = await axios.get(url, {timeout: 500000});
+        const {data} = await axios.get(configValues.url, {timeout: 500000});
         const $ = await cheerio.load(data)
-        const items = "#__next div div.main-content div.sc-57oli2-0.comDeo.cmc-body-wrapper div div div.h7vnx2-1.bFzXgL table tbody tr"
-
-        const keys = [
-            'rank',
-            'name',
-            'price',
-            'allDay',
-            'weekLong',
-            'marketCap',
-            'volume',
-            'circulatingSupply'
-        ]
 
         let coinArray = []
         let foundVal = {};
         foundVal.success = false
-        $(items).each((parentIdx, parentElm) => {
+
+        $(configValues.selector).each((parentIdx, parentElm) => {
             let keyIdx = 0;
             let coinObj = {}
             if (parentIdx <= 9) {
@@ -41,7 +29,7 @@ const getPrices = async (cryptoName) => {
                         tdVal = $('p:first-child', $(childrenElm).html()).text()
                     }
                     if (tdVal) {
-                        coinObj[keys[keyIdx]] = tdVal
+                        coinObj[configValues.keys[keyIdx]] = tdVal
                         keyIdx++;
                     }
                 })
