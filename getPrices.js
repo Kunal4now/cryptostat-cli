@@ -1,6 +1,7 @@
 import cheerio from 'cheerio'
 import axios from 'axios'
 import configValues from './config.js'
+import chalk from 'chalk'
 
 const getPrices = async (cryptoName) => {
     try {
@@ -19,6 +20,14 @@ const getPrices = async (cryptoName) => {
             if (parentIdx <= 9) {
                 $(parentElm).children().each((childrenIdx, childrenElm) => {
                     let tdVal = $(childrenElm).text();
+                    if (childrenIdx === 4 || childrenIdx === 5) {
+                        let className = $('span:first-child span' ,$(childrenElm).html()).attr('class');
+                        if (className === 'icon-Caret-up') {
+                            tdVal = chalk.green(tdVal)
+                        } else {
+                            tdVal = chalk.red(tdVal)
+                        }
+                    }
                     if (childrenIdx === 6) {
                         tdVal = $('p:first-child span:nth-child(2)', $(childrenElm).html()).text()
                     }

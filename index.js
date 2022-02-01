@@ -21,7 +21,7 @@ inquirer.prompt([
     const {rank,name, price , allDay, weekLong, marketCap, volume, circulatingSupply} = val
 
     var table = new Table({
-        head: [chalk.cyan("rank"), chalk.cyan("name"), chalk.cyan("price"), chalk.cyan("24h"), chalk.cyan("7d"), chalk.cyan("marketCap"), chalk.cyan("volume"), chalk.cyan("circulatingSupply")]
+        head: [chalk.yellow.bold("rank"), chalk.yellow.bold("name"), chalk.yellow.bold("price"), chalk.yellow.bold("24h"), chalk.yellow.bold("7d"), chalk.yellow.bold("marketCap"), chalk.yellow.bold("volume"), chalk.yellow.bold("circulatingSupply")]
     });
 
     table.push([rank, name, price, allDay, weekLong, marketCap, volume, circulatingSupply])
