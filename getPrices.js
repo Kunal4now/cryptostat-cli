@@ -5,7 +5,7 @@ import chalk from 'chalk'
 
 const getPrices = async (cryptoName) => {
     try {
-        const {data} = await axios.get(configValues.url, {timeout: 500000});
+        const {data} = await axios.get(configValues.url);
         const $ = await cheerio.load(data)
         
         let coinArray = []
@@ -23,9 +23,9 @@ const getPrices = async (cryptoName) => {
                     if (childrenIdx === 4 || childrenIdx === 5) {
                         let className = $('span:first-child span' ,$(childrenElm).html()).attr('class');
                         if (className === 'icon-Caret-up') {
-                            tdVal = chalk.green(tdVal)
+                            tdVal = '💹 ' + chalk.green(tdVal)
                         } else {
-                            tdVal = chalk.red(tdVal)
+                            tdVal = '📈 ' +  chalk.red(tdVal)
                         }
                     }
                     if (childrenIdx === 6) {
