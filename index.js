@@ -12,7 +12,6 @@ inquirer.prompt([
     }
 ]).then(async (answer)  => {
     const val = await getPrices(answer);
-
     if (!val.success) {
         console.log("Invalid currency");
         return;

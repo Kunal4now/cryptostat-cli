@@ -5,7 +5,12 @@ import chalk from 'chalk'
 
 const getPrices = async (cryptoName) => {
     try {
-        const {data} = await axios.get(configValues.url);
+        const getData = async () => {
+            const {data} = await axios.get(configValues.url);
+            return data
+        }
+
+        const data = await getData()
         const $ = await cheerio.load(data)
         
         let coinArray = []
