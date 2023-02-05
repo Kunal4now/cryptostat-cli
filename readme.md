@@ -22,8 +22,8 @@ npm install -g cryptostat
 To get the stats for Bitcoin
 
 ```bash
-PS C:\Users\kunal> cryptostat
-? Enter the crypto name btc
+PS C:\Users\kunal> cryptostat btc
+
 ┌──────┬─────────┬────────────┬───────┬───────┬──────────────────┬─────────────────┬───────────────────┐
 │ rank │ name    │ price      │ 24h   │ 7d    │ marketCap        │ volume          │ circulatingSupply │
 ├──────┼─────────┼────────────┼───────┼───────┼──────────────────┼─────────────────┼───────────────────┤
@@ -33,8 +33,7 @@ PS C:\Users\kunal> cryptostat
 To get the stats of Dogecoin
 
 ```bash
-PS C:\Users\kunal> cryptostat
-? Enter the crypto name doge
+PS C:\Users\kunal> cryptostat doge
 ┌──────┬──────────┬─────────┬───────┬───────┬─────────────────┬──────────────┬──────────────────────┐
 │ rank │ name     │ price   │ 24h   │ 7d    │ marketCap       │ volume       │ circulatingSupply    │
 ├──────┼──────────┼─────────┼───────┼───────┼─────────────────┼──────────────┼──────────────────────┤

@@ -45,6 +45,9 @@ const getPrices = async (cryptoName) => {
                         tdVal = $('p:first-child', $(childrenElm).html()).text()
                     }
                     if (tdVal) {
+                        if (keyIdx === 5) {
+                            tdVal = tdVal.split('$')[1]
+                        }
                         if (keyIdx == 1) {
                             coinObj[configValues.keys[keyIdx]] = cryptoNameValue
                         } else {
@@ -56,7 +59,7 @@ const getPrices = async (cryptoName) => {
                 coinArray.push(coinObj)
             }
         })
-        const currency = cryptoNameMap.get(cryptoName.cryptoName.toString()) 
+        const currency = cryptoNameMap.get(cryptoName.toString()) 
         coinArray.forEach((coin) => {
             if (coin.name === currency) {
                 foundVal = coin;

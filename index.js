@@ -1,17 +1,11 @@
 #!/usr/bin/env node
-import inquirer from 'inquirer'
 import chalk from 'chalk'
 import Table from 'cli-table3'
 import getPrices from './getPrices.js'
 
-inquirer.prompt([
-    {
-        type: 'input',
-        name: 'cryptoName',
-        message: chalk.bgCyan(chalk.white('Enter the crypto name')),
-    }
-]).then(async (answer)  => {
-    const val = await getPrices(answer);
+
+(async () => {
+    const val = await getPrices(process.argv[2]);
     if (!val.success) {
         console.log("Invalid currency");
         return;
@@ -26,4 +20,4 @@ inquirer.prompt([
     table.push([rank, name, price, allDay, weekLong, marketCap, volume, circulatingSupply])
 
     console.log(table.toString())
-})
+})()
